@@ -6,11 +6,11 @@
 
 def print_hi(name):
     # Используйте точку останова в строке кода ниже для отладки скрипта.
-    print(f'Hi, {name}')  # Нажмите Ctrl+F8 для переключения точки останова.
+    print(f"Hi, {name}")  # Нажмите Ctrl+F8 для переключения точки останова.
 
 
 # Нажмите зеленую кнопку на полях для запуска скрипта.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+if __name__ == "__main__":
+    print_hi("PyCharm")
 
 # Справка PyCharm доступна на https://www.jetbrains.com/help/pycharm/
