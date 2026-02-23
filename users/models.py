@@ -3,6 +3,8 @@ from django.db import models
 
 
 class User(AbstractUser):
+    """Кастомная модель пользователя с авторизацией по email."""
+
     username = None
 
     email = models.EmailField(

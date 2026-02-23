@@ -2,6 +2,8 @@ from django.db import models
 
 
 class Course(models.Model):
+    """Модель курса с названием, описанием и превью."""
+
     name = models.CharField(
         max_length=50, verbose_name="Название курса", help_text="Укажите название курса"
     )
@@ -25,10 +27,13 @@ class Course(models.Model):
         verbose_name_plural = "Курсы"
 
     def __str__(self):
+        """Возвращает название курса."""
         return self.name
 
 
 class Lesson(models.Model):
+    """Модель урока, связанная с курсом."""
+
     name = models.CharField(
         max_length=50, verbose_name="Название урока", help_text="Укажите название урока"
     )
