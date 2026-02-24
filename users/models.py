@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from materials.models import Lesson, Course
+from materials.models import Course, Lesson
 
 
 class User(AbstractUser):
@@ -48,14 +48,12 @@ class Payment(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='payments',
+        related_name="payments",
         verbose_name="пользователь",
         help_text="Укажите пользователя",
     )
     payment_date = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="дата оплаты",
-        help_text="Укажите дату оплаты"
+        auto_now_add=True, verbose_name="дата оплаты", help_text="Укажите дату оплаты"
     )
     paid_course = models.ForeignKey(
         Course,
@@ -63,7 +61,7 @@ class Payment(models.Model):
         null=True,
         blank=True,
         verbose_name="оплаченный курс",
-        help_text="укажите оплаченный курс"
+        help_text="укажите оплаченный курс",
     )
     paid_lesson = models.ForeignKey(
         Lesson,
@@ -71,23 +69,23 @@ class Payment(models.Model):
         null=True,
         blank=True,
         verbose_name="оплаченный урок",
-        help_text="укажите оплаченный урок"
+        help_text="укажите оплаченный урок",
     )
     amount = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         verbose_name="сумма оплаты",
-        help_text="укажите сумму оплаты"
+        help_text="укажите сумму оплаты",
     )
     PAYMENT_METHOD_CHOICES = [
-        ('cash', 'наличные'),
-        ('transfer', 'перевод на счет'),
+        ("cash", "наличные"),
+        ("transfer", "перевод на счет"),
     ]
     payment_method = models.CharField(
         max_length=10,
         choices=PAYMENT_METHOD_CHOICES,
-        default='transfer',
-        verbose_name="способ оплаты"
+        default="transfer",
+        verbose_name="способ оплаты",
     )
 
     class Meta:

@@ -2,8 +2,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
 from rest_framework.viewsets import ModelViewSet
 
-from users.models import User, Payment
-from users.serializers import UserSerializer, PaymentSerializer
+from users.models import Payment, User
+from users.serializers import PaymentSerializer, UserSerializer
 
 
 class UserViewSet(ModelViewSet):
@@ -19,7 +19,14 @@ class PaymentViewSet(ModelViewSet):
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer
     filter_backends = [DjangoFilterBackend, OrderingFilter]
-    filterset_fields = ('paid_course', 'paid_lesson', 'payment_method',)
+    filterset_fields = (
+        "paid_course",
+        "paid_lesson",
+        "payment_method",
+    )
 
-    ordering_fields = ('payment_date', 'amount',)
-    ordering = ('-payment_date',)
+    ordering_fields = (
+        "payment_date",
+        "amount",
+    )
+    ordering = ("-payment_date",)
