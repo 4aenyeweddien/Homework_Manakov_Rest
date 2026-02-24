@@ -48,6 +48,7 @@ class Payment(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
+        related_name='payments',
         verbose_name="пользователь",
         help_text="Укажите пользователя",
     )
@@ -78,3 +79,17 @@ class Payment(models.Model):
         verbose_name="сумма оплаты",
         help_text="укажите сумму оплаты"
     )
+    PAYMENT_METHOD_CHOICES = [
+        ('cash', 'наличные'),
+        ('transfer', 'перевод на счет'),
+    ]
+    payment_method = models.CharField(
+        max_length=10,
+        choices=PAYMENT_METHOD_CHOICES,
+        default='transfer',
+        verbose_name="способ оплаты"
+    )
+
+    class Meta:
+        verbose_name = "Платеж"
+        verbose_name_plural = "Платежи"
