@@ -9,13 +9,13 @@ from users.views import PaymentViewSet, UserViewSet
 app_name = UsersConfig.name
 
 router = SimpleRouter()
-router.register("users", UserViewSet)  # /users/users/
-router.register("payments", PaymentViewSet)  # /users/payments/
+router.register("users", UserViewSet)
+router.register("payments", PaymentViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
     path(
-        "login/",TokenObtainPairView.as_view(),name="login/"),
+        "login/",TokenObtainPairView.as_view(),name="login"),
     path(
         "token/refresh/",TokenRefreshView.as_view(),name="token_refresh"),
 ]
