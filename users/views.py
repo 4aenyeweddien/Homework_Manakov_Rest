@@ -1,5 +1,6 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.viewsets import ModelViewSet
 
 from users.models import Payment, User
@@ -11,6 +12,15 @@ class UserViewSet(ModelViewSet):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    def get_permissions(self):
+        """Права для действий пользователей"""
+
+        if self.action == "create":
+            permission_classes = (AllowAny,)
+        else:
+            permission_classes = (IsAuthenticated,)
+        return [permission() for permission in permission_classes]
 
 
 class PaymentViewSet(ModelViewSet):
@@ -30,3 +40,4 @@ class PaymentViewSet(ModelViewSet):
         "amount",
     )
     ordering = ("-payment_date",)
+    permission_classes = (IsAuthenticated,)
