@@ -1,0 +1,35 @@
+[
+    {
+        "model": "users.user",
+        "pk": 1,
+        "fields": {
+            "password": "1111",
+            "email": "ivan@example.com",
+            "phone": "+79991234567",
+            "city": "Москва",
+            "avatar": ""
+        }
+    },
+    {
+        "model": "users.user",
+        "pk": 2,
+        "fields": {
+            "password": "1111",
+            "email": "maria@example.com",
+            "phone": "+79876543210",
+            "city": "СПб",
+            "avatar": ""
+        }
+    },
+    {
+        "model": "users.user",
+        "pk": 3,
+        "fields": {
+            "password": "1111",
+            "email": "alex@example.com",
+            "phone": "+79111234567",
+            "city": "Казань",
+            "avatar": ""
+        }
+    }
+]

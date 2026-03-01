@@ -1,0 +1,35 @@
+[
+    {
+        "model": "materials.lesson",
+        "pk": 1,
+        "fields": {
+            "name": "Введение",
+            "course": 1,
+            "description": "Первый урок",
+            "picture": "",
+            "video_link": "https://youtube.com/1"
+        }
+    },
+    {
+        "model": "materials.lesson",
+        "pk": 2,
+        "fields": {
+            "name": "Основы",
+            "course": 1,
+            "description": "Второй урок",
+            "picture": "",
+            "video_link": "https://youtube.com/2"
+        }
+    },
+    {
+        "model": "materials.lesson",
+        "pk": 3,
+        "fields": {
+            "name": "Установка",
+            "course": 2,
+            "description": "Первый урок Django",
+            "picture": "",
+            "video_link": "https://youtube.com/3"
+        }
+    }
+]
